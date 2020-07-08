@@ -5,9 +5,9 @@ Di seguito è riportata una breve descrizione della richiesta del progetto, per 
 
 
 ## Descrizione
-Il progetto richiedeva di creare un linguaggio di programmazione a partire dalla sintassi del linguaggio <br>E</br>, ovvero si chiedeva si costruire l'intero front-end di un compilatore in grado di trasformare il codice del linguaggio sorgente creato in three-address code (TAC).  
+Il progetto richiedeva di creare un linguaggio di programmazione a partire dalla sintassi del linguaggio <b>E</b>, ovvero si chiedeva si costruire l'intero front-end di un compilatore in grado di trasformare il codice del linguaggio sorgente creato in three-address code (TAC).  
 In particolare i macro passaggi richiesti erano:
-* progettare una sintassi adeguta alle operazioni richieste, eventualmente estendendo quella del linguaggio <br>E</br> nel caso questo non le possieda nativamente
+* progettare una sintassi adeguta alle operazioni richieste, eventualmente estendendo quella del linguaggio <b>E</b> nel caso questo non le possieda nativamente
 * progettare un type-system adeguato
 * implementare un lexer (attraverso l'utilizzo di Alex) e un parser (attraverso l'utilizzo di Happy) del linguaggio creato
 * implementre un type-checker del linguaggio creato
