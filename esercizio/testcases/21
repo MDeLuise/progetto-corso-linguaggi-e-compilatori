@@ -1,0 +1,8 @@
+{
+ var x:int[][][] := [[[1]]] 
+ def foo(v:int[1][1][1]):int~{
+   def h:int :=6
+   def j:int~ := &h
+  return j 
+ }
+}

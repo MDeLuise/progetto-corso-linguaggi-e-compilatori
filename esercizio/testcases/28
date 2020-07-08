@@ -1,0 +1,8 @@
+{
+var x:int := 20
+def y:int[] := [x]
+for i in y[0]+y[0]**2 .. x+y[0] {
+    x := i
+}
+}
+

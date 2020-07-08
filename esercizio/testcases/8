@@ -1,0 +1,12 @@
+{
+ var x:int :=1
+ var y:int :=56
+ while(x+x*2<=37){
+   while(y>37){
+    --y
+    x+= 3
+    break
+   }
+ }
+ var c:float64 :=4.4
+}

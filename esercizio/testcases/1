@@ -1,0 +1,6 @@
+{
+var x : int := 3
+x:= x + 'a'
+var y:int~ := &x
+(~y)++
+}

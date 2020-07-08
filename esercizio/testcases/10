@@ -1,0 +1,13 @@
+{
+var x:String := "qwerty"
+var f:int :=2
+if(x=="qwe"){
+  while(true){
+    if(f<200){
+     f**=2
+    } else{
+     break
+    }
+  }
+}
+}

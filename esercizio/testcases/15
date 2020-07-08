@@ -1,0 +1,16 @@
+{
+  var x:int := 4
+  var y:String := "be"
+  def foo(x:int, y:String):String{
+    if(x>6){
+      return y
+    }else{
+      return "fail" 
+    }
+    return "s"
+  } 
+  if(foo(x,y) == "fail"){
+    def z:int := 17
+    
+  }
+}

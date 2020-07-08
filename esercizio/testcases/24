@@ -1,0 +1,7 @@
+{
+def x:int := 10
+
+def foo(y:int~):int~ {
+    return &x
+}
+}

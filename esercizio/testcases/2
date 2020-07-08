@@ -1,0 +1,7 @@
+{
+def guard:boolean := true
+var x:int := 5
+if(guard){
+  x += 4
+}
+}

@@ -1,0 +1,16 @@
+{
+ def vo():void{
+ 
+ }
+ def co():void{
+   return
+ }
+ def foo():int{
+   return 4+'a'
+ }
+ def x:int := foo()
+ def fun(x:int):int{
+   def y:int := x
+   return y**2
+ }
+}

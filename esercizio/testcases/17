@@ -1,0 +1,8 @@
+{
+  var x:int := 5
+  def foo(y:int,y:float64):float64{
+    var x:int :=9
+    return 5 + y
+    }
+   foo(x,x) 
+}

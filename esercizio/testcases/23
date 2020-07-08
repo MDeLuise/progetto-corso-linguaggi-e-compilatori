@@ -1,0 +1,12 @@
+{def foo():int{ 
+foo2()
+return 3
+}
+def foo2():int{
+foo()
+return 3
+}
+
+foo()
+}
+

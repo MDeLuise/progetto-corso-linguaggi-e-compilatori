@@ -1,0 +1,11 @@
+{
+ var x:int :=5
+ {
+  var x:boolean:=true
+  {
+   x&= true
+  }
+ } 
+ x++
+}
+

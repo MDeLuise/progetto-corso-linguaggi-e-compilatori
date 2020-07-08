@@ -1,0 +1,6 @@
+{
+ var x:char := 'f'
+ while(x){
+   x:='k'
+ }
+}

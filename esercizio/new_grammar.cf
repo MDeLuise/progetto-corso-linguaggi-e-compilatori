@@ -1,0 +1,144 @@
+-- Comments
+comment "#" ;
+comment "/*" "*/" ;
+
+
+
+-- Entrypoints and rules
+entrypoints Program ;
+rules       Boolean ::= "true" | "false" ;
+rules       BasicType ::= "boolean" | "char" | "float64" | "int" | "void" | "String";
+rules       Modality ::= {-empty-} | "val" | "ref" | "valres" | "const" ;
+rules       NewLine ::= "\n" ;
+
+
+Prog.       Program ::= BlockDecl ";" ;
+
+
+-- RExp
+separator   RExpr "," ;
+coercions   RExpr 14 ;
+
+Or.         RExpr ::= RExpr "||" RExpr1 ;
+And.        RExpr1 ::= RExpr1 "&&" RExpr2 ;
+Not.        RExpr2 ::= "!" RExpr3 ;
+
+Eq.         RExpr5 ::= RExpr6 "==" RExpr6 ;
+Neq.        RExpr5 ::= RExpr6 "!=" RExpr6 ;
+Lt.         RExpr5 ::= RExpr6 "<"  RExpr6 ;
+LtE.        RExpr5 ::= RExpr6 "<=" RExpr6 ;
+Gt.         RExpr5 ::= RExpr6 ">"  RExpr6 ;
+GtE.        RExpr5 ::= RExpr6 ">=" RExpr6 ;
+
+Add.        RExpr7 ::= RExpr7 "+" RExpr8 ;
+Sub.        RExpr7 ::= RExpr7 "-" RExpr8 ;
+Mul.        RExpr8 ::= RExpr8 "*" RExpr9 ;
+Div.        RExpr8 ::= RExpr8 "/" RExpr9 ;
+Mod.        RExpr8 ::= RExpr8 "%" RExpr9 ;
+Pow.        RExpr9 ::= RExpr10 "**" RExpr9 ;
+Neg.        RExpr11 ::= "-" RExpr12 ;
+
+Ref.        RExpr11 ::= "&" LExpr ;
+FCall.      RExpr12 ::= Ident "(" [RExpr] ")" ;
+
+Int.        RExpr13 ::= Integer ;
+Char.       RExpr13 ::= Char ;
+String.     RExpr13 ::= String ;
+Float.      RExpr13 ::= Double ;
+Bool.       RExpr13 ::= Boolean ;
+Lexpr.      RExpr14 ::= LExpr ;
+
+IfRe.       RExpr ::= "`" RExpr "`" "?" "`" RExpr "`" "^" "`" RExpr "`" ;
+
+-- LExp
+coercions   LExpr 2 ;
+
+Deref.      LExpr ::= "~" RExpr ;
+PreInc.     LExpr ::= "++" LExpr1 ;
+PreDecr.    LExpr ::= "--" LExpr1 ;
+
+PostInc.    LExpr1 ::= LExpr2 "++" ;
+PostDecr.   LExpr1 ::= LExpr2 "--" ;
+
+BasLExpr.   LExpr2 ::= BLExpr ;
+
+ArrayEl.    BLExpr ::= BLExpr "[" RExpr "]" ;
+Id.         BLExpr ::= Ident ;
+
+
+
+
+-- Types
+BasTyp.     TypeSpec ::= BasicType ;
+CompType.   TypeSpec ::= CompoundType ;
+ArrDef.     CompoundType ::= TypeSpec "[" Integer "]" ;
+ArrUnDef.   CompoundType ::= TypeSpec "["  "]" ;
+Pointer.    CompoundType ::= TypeSpec "~" ;
+
+VarDeclIn.  VarDeclInit ::= "var" Ident ":" TypeSpec ":=" ComplexRExpr ;
+ConDeclIn.  VarDeclInit ::= "def" Ident ":" TypeSpec ":=" ComplexRExpr ;
+CheckDecl.  CheckedDecl ::= "checked" VarDeclInit ;
+CheckDecl1.  CheckedDecl ::= VarDeclInit ;
+Simple.     ComplexRExpr ::= RExpr ;
+Array.      ComplexRExpr ::= "[" [ComplexRExpr] "]" ;
+
+separator nonempty ComplexRExpr "," ;
+
+separator   Parameter "," ;
+
+Param.      Parameter ::= Modality Ident ":" TypeSpec;
+
+
+
+-- Statement
+separator Stmt ";" ;
+-- terminator Stmt ";" ;
+
+Comp.       Stmt ::= BlockDecl ;
+ProcCall.   Stmt ::= Ident "(" [RExpr] ")"  ;
+Jmp.        Stmt ::= JumpStmt  ;
+While.      Stmt ::= "while" "(" RExpr ")" BlockDecl ;
+DoWhile.    Stmt ::= "do" BlockDecl "while" "(" RExpr ")"  ;
+For.        Stmt ::= "for" Ident "in" RExpr ".." RExpr  ;
+Sel.        Stmt ::= SelectionStmt ;
+Assgn.      Stmt ::= LExpr Assignment_op RExpr  ;
+LExprStmt.  Stmt ::= LExpr  ;
+VarDec.     Stmt ::= CheckedDecl ;
+FunDec.     Stmt ::= "def" Ident "(" [Parameter] ")" ":" TypeSpec BlockDecl ;
+Switch.     Stmt ::= "switch" "(" RExpr ")" SwitchBlock ;
+_.          Stmt ::= "(" Stmt ")" ;
+_.          Stmt ::= Stmt ";" ;
+
+BlockSwitch.  SwitchBlock ::= "{" [SwitchMatch] "}" ;
+
+Match.    SwitchMatch ::= "match" RExpr BlockDecl ;
+Default.  SwitchMatch ::= "match" "_" BlockDecl ;
+
+separator SwitchMatch ";" ;
+
+Block.      BlockDecl ::= "{" [Stmt] "}" ;
+-- EmptyBlock. BlockDecl ::= "{" "}" ;
+
+-- Assignment
+Assign.     Assignment_op ::= ":=" ;
+AssgnMul.   Assignment_op ::= "*=" ;
+AssgnAdd.   Assignment_op ::= "+=" ;
+AssgnDiv.   Assignment_op ::= "/=" ;
+AssgnSub.   Assignment_op ::= "-=" ;
+AssgnPow.   Assignment_op ::= "**=" ;
+AssgnAnd.   Assignment_op ::= "&=" ;
+AssgnOr.    Assignment_op ::= "|=" ;
+
+
+
+-- Jump Statements
+Break.      JumpStmt ::= "break" ;
+Continue.   JumpStmt ::= "continue" ;
+RetExpVoid. JumpStmt ::= "return" ;
+RetExp.     JumpStmt ::= "return" RExpr ;
+
+
+
+-- Conditional
+IfNoElse.   SelectionStmt ::= "if" "(" RExpr ")" BlockDecl ;
+IfElse.     SelectionStmt ::= "if" "(" RExpr ")" BlockDecl "else" BlockDecl ;

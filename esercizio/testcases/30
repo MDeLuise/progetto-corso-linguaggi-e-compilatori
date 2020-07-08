@@ -1,0 +1,5 @@
+{
+if("Lorem" < "ipsum" || "sit" > "amet" && "consectetur" >= "adipisci" || "elit" <= "sed"){
+	var x : String[] := ["sed"]
+}
+}

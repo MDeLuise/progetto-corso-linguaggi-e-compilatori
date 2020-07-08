@@ -1,0 +1,13 @@
+{
+var x:int := 5
+var y:int := 1
+do {
+x++
+def foo(x:int):int {
+ return x*x+x
+ }
+ y *= foo(x)
+ }while(x<=67)
+ 
+ }
+

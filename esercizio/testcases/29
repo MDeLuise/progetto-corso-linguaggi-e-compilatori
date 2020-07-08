@@ -1,0 +1,5 @@
+{
+def x:int[] := [1]
+for i in x[0] .. 200 {}
+def y:int[] := [x[0]]
+}

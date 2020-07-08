@@ -1,0 +1,16 @@
+{
+
+var x:int  :=4
+var y:int[] := [1,5]
+var z: int[2]~ := &y
+
+def foo(val c:int[2]~) :float64 {
+  var u:float64 := 0.0
+  u:= (~c)[0] % x
+  x+=4
+  return u / x
+ }
+ {
+  var l :float64 := foo(z)
+ }
+}

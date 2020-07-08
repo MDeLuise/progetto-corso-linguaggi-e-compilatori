@@ -1,0 +1,13 @@
+{
+ var k:String := "qwe"
+ var l:String := "rte"
+ var f:String~ := &k
+ var v:String~ := &l
+ foo(&k, v)
+ foo(f,&l)
+ 
+ def foo(valres a:String~, ref b:String~):String{
+   
+    return ~a 
+  }     
+ }

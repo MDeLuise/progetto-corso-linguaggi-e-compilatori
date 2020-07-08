@@ -1,0 +1,15 @@
+# this is a in-line comment
+{
+def x:int := readInt("stdin")
+var res:float64 := 0
+switch(x%5) {
+    match 1 { res := 100 }
+    match 2 { res := 120 }
+    match 3 { writeString("stdout", "No sense")
+              res := 90
+            }
+    match _ {}
+}
+
+def ok: boolean := `res <= 100` ? `true` ^ `false`
+}

@@ -1,0 +1,6 @@
+{
+def foo( const x : int[1]~ ) : void {
+	(~x)[0] += 3
+}
+}
+

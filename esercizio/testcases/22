@@ -1,0 +1,15 @@
+{
+var x:int := 1
+var v:int~ := &x
+var k:int~[] := [v,v]
+def foo(b:int~[2]):int{
+var r:int :=0
+if(b[0] == b[1]){
+  r+= ~b[1]
+  }else{
+  r*= ~b[1]
+  }
+ return r
+}
+def c:int := foo(k)
+}

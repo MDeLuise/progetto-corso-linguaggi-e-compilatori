@@ -1,0 +1,13 @@
+{
+ var x:int :=0
+ var y:int[] := [1,2,3,4,5]
+ var z:int:=0
+ while(x<5){ 
+  
+  z*=y[x] 
+  y[x]:= z       
+  ++x
+  
+ }
+}
+

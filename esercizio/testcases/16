@@ -1,0 +1,10 @@
+{
+	def x(valres y: int, ref z : int, w : int) : int {
+		return y * z * w
+	}
+var a : int := 1
+var b : int := 2
+var c : int := 3
+def res : int := x(a, b, c)
+}
+

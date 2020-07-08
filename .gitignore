@@ -1,0 +1,14 @@
+!.gitignore
+*.o
+*.hi
+*.exe
+*.bak
+*.info
+TestGrammar
+TypeChecking
+TACGen
+Test
+Mine
+Printer
+LexGrammar.hs
+ParGrammar.hs

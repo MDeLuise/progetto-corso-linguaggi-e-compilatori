@@ -1,0 +1,18 @@
+{
+ {
+  def x:float64 := 12.56
+  if(x>20){
+    def y:boolean :=true
+  } else {
+    def y:boolean := false
+  }
+ }
+ {
+  var x:boolean:= true
+  if(x){
+    x&= false
+  } else{
+    x|= true
+  }
+ }  
+}

@@ -1,0 +1,13 @@
+{
+
+var x:int :=5 
+def foo( b:int) : int {
+return 5
+}
+ 
+ do{
+  var t:int~ := &x
+  var m:int := foo( ~t)
+  }while(x != 6)
+  
+ }

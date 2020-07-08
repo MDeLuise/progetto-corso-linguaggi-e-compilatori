@@ -1,0 +1,7 @@
+{
+ def h:int :=6
+ def t:int :=8
+ def y:int~ := &h
+ def z:int~ := &t
+ def c:int := ~y + ~z
+}

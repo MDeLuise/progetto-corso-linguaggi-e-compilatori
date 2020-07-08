@@ -1,0 +1,6 @@
+{
+  var x:int := 5
+  var y:int := 7 
+  var l:int[] := [ 1, 2, `x!=y` ? ` x` ^ `y`]
+  var m:int[][] := [[1], `true` ? `l` ^ `l`]
+}

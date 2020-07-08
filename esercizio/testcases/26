@@ -1,0 +1,7 @@
+{
+def x:int := 10
+def y:int~[] := [&x]
+
+def foo():int~ { return y[0] }
+def foo(z:int~[1]):int~ { return z[0] }
+}

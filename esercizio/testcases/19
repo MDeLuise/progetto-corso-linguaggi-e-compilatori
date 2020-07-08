@@ -1,0 +1,22 @@
+{
+ var k:String := "qwe"
+ var l:String := "rte"
+ var f:String~ := &k
+ var v:String~ := &l
+ if(l != k){
+   k := foo(v,f)
+ }else{
+   l := foo(f,v)
+ }
+ 
+ 
+ def foo(valres a:String~, ref b:String~):String{
+    var v:int := 5
+    while(v<=9){
+     if(v%4 == 0){
+       break
+     }
+    }
+    return ~a 
+  }     
+}

@@ -1,0 +1,9 @@
+{
+ var x:int := 5
+ var y:boolean :=false
+ y &= x<=5
+ if(y || (x<6 && true)){
+   var x:int := 9
+ }
+ x--
+}
